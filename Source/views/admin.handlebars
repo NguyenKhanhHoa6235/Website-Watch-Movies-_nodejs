@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/admin.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-camera-movie'></i>
+            <span class="logo_name">AQH Admin</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/api/users">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Manage User</span>
+                </a>
+            </li>
+            <li>
+                <a href="/api/movies/movie_list">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Movie lists</span>
+                </a>
+            </li>
+            <li>
+                <a href="/api/movies/new_movie">
+                    <i class='bx bx-movie-play'></i>
+                    <span class="links_name">Add Movie</span>
+                </a>
+            </li>
+            <li>
+                <a href="category">
+                    <i class='bx bx-category'></i>
+                    <span class="links_name">Category</span>
+                </a>
+            </li>
+            <li>
+                <a href="comment_manage">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Comment Manage</span>
+                </a>
+            </li>
+            <li>
+                <a href="setting">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+            </li>
+            <li class="log_out">
+                <a href="/logout">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+            <div class="profile-details">
+                <!--<img src="images/profile.jpg" alt="">-->
+                <span class="admin_name">Admin</span>
+                <i class='bx bx-chevron-down'></i>
+            </div>
+        </nav>
+        <div class="home-content">
+            <div class="overview-boxes">
+                {{!-- <h1>ADMINISTRATOR PAGE</h1> --}}
+                {{!-- <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Total access</div>
+                        <div class="number">9,876</div>
+                        <div class="indicator">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            <span class="text">Up from yesterday</span>
+                        </div>
+                    </div>
+                    <i class='bx bx-cart-alt cart'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Total views</div>
+                        <div class="number">12,876</div>
+                        <div class="indicator">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            <span class="text">Up from yesterday</span>
+                        </div>
+                    </div>
+                    <i class='bx bxs-cart-add cart two'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Total Profit</div>
+                        <div class="number">$12,876</div>
+                        <div class="indicator">
+                            <i class='bx bx-up-arrow-alt'></i>
+                            <span class="text">Up from yesterday</span>
+                        </div>
+                    </div>
+                    <i class='bx bx-cart cart three'></i>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Total Return</div>
+                        <div class="number">11,086</div>
+                        <div class="indicator">
+                            <i class='bx bx-down-arrow-alt down'></i>
+                            <span class="text">Down From Today</span>
+                        </div>
+                    </div>
+                    <i class='bx bxs-cart-download cart four'></i>
+                </div> --}}
+            </div>
+            
+            <div class="sales-boxes">
+                <div class="recent-sales box">
+                    <div class="title">Admin Page</div>
+                    <div class="sales-details">
+                        <img src="/images/home.jpg" alt="Home picture" width="100%" height="100%"
+                            style="margin-bottom:10px; margin-top:10px">
+                    </div>
+                    <div class="button">
+                        <a href="#">See All</a>
+                    </div>
+                    {{!-- <img src="./images/home.jpg" alt="Home picture" width="100%" height="100%"
+                        style="margin-bottom:10px"> --}}
+                </div>
+                <div class="top-sales box">
+                    <div class="title">Top Movie</div>
+                    <ul class="top-sales-details">
+                        <li>
+                            <a href="#">
+                                <img src="./pinkpanther.jpg" alt="">
+                                <span class="product">Pink panther</span>
+                            </a>
+                            <span class="price">$1107</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./drStrange.jpg" alt="">
+                                <span class="product">Dr.Strange: Đa vũ trụ hỗn loạn </span>
+                            </a>
+                            <span class="price">$1567</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./antman.jpg" alt="">
+                                <span class="product">Ant Man</span>
+                            </a>
+                            <span class="price">$1234</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./thor-ragnarok.jpg" alt="">
+                                <span class="product">Thor: Ragnarok</span>
+                            </a>
+                            <span class="price">$2312</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./peaky.jpg" alt="">
+                                <span class="product">Peaky Blinders</span>
+                            </a>
+                            <span class="price">$1456</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./iceage.jpg" alt="">
+                                <span class="product">Ice Age</span>
+                            </a>
+                            <span class="price">$2345</span>
+                        <li>
+                            <a href="#">
+                                <img src="./nbn.jpg" alt="">
+                                <span class="product">Nhà Bà Nữ</span>
+                            </a>
+                            <span class="price">$2345</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./theglory.jpg" alt="">
+                                <span class="product">The glory</span>
+                            </a>
+                            <span class="price">$1245</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+</body>
+
+</html>

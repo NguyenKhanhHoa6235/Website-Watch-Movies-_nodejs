@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/movie.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Edit Movie Details</h1>
+  <form action="/movies" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="{{movies.name}}" ><br><br>
+    <label for="desc">Description:</label>
+    <textarea id="desc" name="desc" rows="4" cols="50" placeholder="{{movies.desc}}" ></textarea><br><br>
+    <label for="titleImage">Title Image URL:</label>
+    <input type="text" id="titleImage" name="titleImage" placeholder="{{movies.titleImage}}" ><br><br>
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" name="image" placeholder="{{movies.image}}" ><br><br>
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" placeholder="{{movies.category}}" ><br><br>
+    <label for="language">Language:</label>
+    <input type="text" id="language" name="language" placeholder="{{movies.language}}" ><br><br>
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year" placeholder="{{movies.year}}" ><br><br>
+    <label for="time">Time (in minutes):</label>
+    <input type="number" id="time" name="time" placeholder="{{movies.time}}" ><br><br>
+    <label for="video">Video URL:</label>
+    <input type="text" id="video" name="video" placeholder="{{movies.video}}" ><br><br>
+    <label for="rate">Rate:</label>
+    <input type="number" id="rate" name="rate" placeholder="{{movies.rate}}" ><br><br>
+    <label for="numberOfReviews">Number of Reviews:</label>
+    <input type="number" id="numberOfReviews" name="numberOfReviews" placeholder="{{movies.numberOfReviews}}"  ><br><br>
+    <label for="reviews">Reviews:</label>
+    <textarea id="reviews" name="reviews" rows="4" cols="50"></textarea><br><br>
+    <label for="casts">Casts:</label><br><br>
+    <div id="castsContainer">
+      <!-- Casts will be dynamically added here using JavaScript -->
+    </div>
+    <button type="button" onclick="addCast()">Add Cast</button><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // JavaScript function to dynamically add cast fields
+    function addCast() {
+      var castsContainer = document.getElementById("castsContainer");
+      var castDiv = document.createElement("div");
+      castDiv.innerHTML = `
+        <label for="castName">Name:</label>
+        <input type="text" id="castName" name="casts[name]" required><br><br>
+        <label for="castImage">Image URL:</label>
+        <input type="text" id="castImage" name="casts[image]" required><br><br>
+        <button type="button" onclick="removeCast(this)">Remove Cast</button>
+      `;
+      castsContainer.appendChild(castDiv);
+    }
+
+    // JavaScript function to remove cast fields
+    function removeCast(button) {
+      button.parentNode.remove();
+    }
+    function updateMovie(movieId){
+            if (confirm("Are you sure you want to update this movie?")) {
+				fetch("/api/movies/" + movieId, {
+					method: "PUT"
+				})
+				.then(response => {
+					if (response.ok) {
+						alert("Movie updated successfully");
+						window.location.href = "/api/movies/";
+					} else {
+						alert("Failed to update movie");
+					}
+				})
+				.catch(error => {
+					alert("Failed to update movie");
+					console.error(error);
+				});
+			}
+        }
+  </script>
+</body>

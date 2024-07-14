@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css    ">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        p.item {
+            padding: 16px;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+            background-color: green;
+        }
+
+        .login-background {
+            background-image: linear-gradient(0, rgba(123, 33, 33, 0.6), rgba(0, 0, 0, 0.5)), url(/images/login_register.jpg);
+            height: 100vh;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-form{
+            background-color: rgba(0,0,0,.75);
+        }
+    </style>
+</head>
+
+<body class="bg-secondary">
+    <div class="login-background">
+        <!-- buộc toàn bộ dòng và cột phải bỏ trong class container -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-5">
+                <div class="border p-3 my-5 rounded border border-5 border-warning login-form" >
+                    <form action="/api/users" method="POST">
+                        <h3 class="text-center font-weight-bold" style="color: red;">ĐĂNG KÍ</h3>
+                        <div class="form-group">
+                            <label for="user" style="color: #ffff;">Họ tên</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input id="username" type="text" name="username" class="form-control" placeholder="UserName">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="user" style="color: #ffff;">Email</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input id="email" type="text" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" style="color: #ffff;">Mật khẩu</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control"  placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpass" style="color: #ffff;">Nhập lại mật khẩu</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="user" style="color: #ffff;">Profile picture</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input id="profilePicture" type="file" name="profilePicture" class="form-control" placeholder="Picture">
+                            </div>
+                        </div>
+                        {{#if message}}
+                        <div class="form-group">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{message}}
+                            </div>
+                        </div>
+                        {{/if}}
+                        <div class="form-group text-center">
+                            <button class="btn btn-danger px-5" type="submit" style="background-color: red; font-weight: bold;">Đăng Kí </button>
+                        </div>
+                        <div class="form-group">
+                            <p style="color: #ffff;">Bạn đã có tài khoản? <a href="/login">Đăng nhập ngay!</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>    
+
+</body>
+
+</html>

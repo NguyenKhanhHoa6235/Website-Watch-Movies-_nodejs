@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "64404c5add113a4669f73f5b"
+  },
+  "username": "user",
+  "email": "user@gmail.com",
+  "password": "$2a$10$soRbRSEwEtovMMRdWw6zdeDgvH/ZwU0BUlLKB/5Lhcb/3ZxfznPW.",
+  "profilePicture": "",
+  "isAdmin": false,
+  "likedMovies": [],
+  "createdAt": {
+    "$date": "2023-04-19T20:17:30.945Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-19T20:17:30.945Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64404ce9dd113a4669f73f5e"
+  },
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$ixvB/.i5xjmvtdwXS1ojwOJ.zZMQyqF5ox16aasSFGWhPYqD5Z03W",
+  "profilePicture": "",
+  "isAdmin": true,
+  "likedMovies": [],
+  "createdAt": {
+    "$date": "2023-04-19T20:19:53.899Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-19T20:22:31.742Z"
+  },
+  "__v": 5
+},{
+  "_id": {
+    "$oid": "6442d04667e1e0a2fd328b2e"
+  },
+  "username": "user1",
+  "email": "user1@gmail.com",
+  "password": "$2a$10$g4Zty3e9WFODbcehcfah1O1lGtzrdQ.qAZGMEyW1d.wSGqLc70SMG",
+  "profilePicture": "",
+  "isAdmin": false,
+  "likedMovies": [],
+  "createdAt": {
+    "$date": "2023-04-21T18:04:54.749Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-21T18:04:54.749Z"
+  },
+  "__v": 0
+}]

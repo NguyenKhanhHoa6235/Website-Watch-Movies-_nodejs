@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {{!--
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .nav {
+            display: flex;
+            font-size: 16px;
+        }
+
+        .navbar {
+            margin-bottom: 0px;
+        }
+
+        #myNav {
+            background-color: #0C1221;
+            height: 60px;
+            border-radius: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .toggle {
+            display: none;
+            background: #151515;
+            color: azure;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 1080px) {
+            .toggle {
+                display: block !important;
+            }
+
+            nav {
+                display: none;
+            }
+
+        }
+
+        .navbar-brand {}
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * *
+* menu dropdown
+*/
+        .dropdown-menu {
+            background: #000000;
+        }
+
+        .dropdown-menu a {
+            color: blue;
+        }
+
+        .dropdown-menu li a {
+            color: #9ea0a1;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #090071;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.navbar-brand').click(function () {
+                window.location.href = '/';
+            });
+        });
+    </script>
+</head>
+
+<body>
+    {{!-- ************MENU - NAVBAR************* --}}
+    <div class="toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav class="navbar navbar-inverse" id="myNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand " style="color: red; font-size:25px; font-weight: bold;" href="#">AQH Movies</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Trang chủ</a></li>
+                <li><a href="/api/movies/">Phim</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="width: 500px;" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default" style="color: red;"><i class="fas fa-search"
+                            style="font-size:17px"></i></button>
+                </form>
+                <li style="height: 50px;"><a href="#"><i class="fa fa-heart" data-toggle="modal"
+                            data-target="#bell-Modal" style="font-size:22px"></i></a></li>
+                {{#if user}}
+                <li style="height: 50px;"><a href="/api/users/admin">Admin Page</a></li>
+                <li style="height: 50px;"><a href="logout">{{user.username}}</a></li>
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span></a></li>
+                {{else}}
+                <li style="height: 50px;" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i
+                            class="fa fa-user-circle" style="font-size:22px"></i><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
+                    </ul>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>

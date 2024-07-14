@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Movie List</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+			color: #333;
+		}
+
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+
+		img {
+			height: 100px;
+			width: 80px;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 8px 12px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		.edit-btn {
+			background-color: #2196F3;
+		}
+
+		.delete-btn {
+			background-color: #f44336;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Movie List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Movie Image</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Category</th>
+				<th>Year</th>
+				<th>Time</th>
+				<th>Rate</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each movies}}
+			<tr>
+				<td>{{{this._id}}}</td>
+				<td><img src="{{this.image}}"></td>
+				<td>{{{this.name}}}</td>
+				<td>{{{this.desc}}}</td>
+				<td>{{{this.category}}}</td>
+				<td>{{{this.year}}}</td>
+				<td>{{{this.time}}}</td>
+				<td>{{{this.rate}}}</td>
+				<td>
+					<button class="edit-btn" onclick="editMovie('{{{this._id}}}')">Edit</button>
+					<button class="delete-btn" onclick="deleteMovie('{{{this._id}}}')">Delete</button>
+				</td>
+			</tr>
+			{{/each}}
+			
+		</tbody>
+	</table>
+	<script>
+		function editMovie(movieId) {
+			// redirect to edit user page with user id as parameter
+			window.location.href = "/api/movies/admin/" + movieId;
+		}
+		function deleteMovie(movieId) {
+			// send delete request to server with user id as parameter
+			if (confirm("Are you sure you want to delete this movie?")) {
+				fetch("/api/movies/" + movieId, {
+					method: "DELETE"
+				})
+					.then(response => {
+						if (response.ok) {
+							alert("Movie deleted successfully");
+							location.reload();
+						} else {
+							alert("Failed to delete movie");
+						}
+					})
+					.catch(error => {
+						alert("Failed to delete movie");
+						console.error(error);
+					});
+			}
+		}
+	</script>
+</body>
+
+</html>

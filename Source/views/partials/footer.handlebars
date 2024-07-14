@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+</head>
+    <style>
+        hr.line-footer {
+            border: 0.05px solid rgb(201, 201, 201);
+            margin-top: 200px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #0B0F29;
+            color: blanchedalmond;
+            padding-right: 45px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        footer a {
+            color: blanchedalmond;
+        }
+    </style>
+<body>
+
+    {{!-- ***********FOOTER************ --}}
+    <footer>
+        <div class="conteiner text-white">
+            <div class="container-fluid p-5 text-center">
+                <h1 style="color: red; font-weight: bold;">AQH.net</h1>
+                <p>Web xem phim online chất lượng cao!</p>
+            </div>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Thành viên nhóm</h3>
+                        <a href="#" data-toggle="modal" data-target="#leanh-Modal">
+                            <p>Nguyễn Lê Anh</p>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#minhquang-Modal">
+                            <p>Nguyễn Minh Quang</p>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#khanhhoa-Modal">
+                            <p>Nguyễn Khánh Hòa</p>
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Đối tác</h3>
+                        <p>Trường Đại Học Tôn Đức Thắng</p>
+                        <p>Công ty trách nhiệm ABC</p>
+                        <p>Công ty trách nhiệm ABC</p>
+                        <p>Công ty trách nhiệm ABC</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Liên hệ</h3>
+                        <address>
+                            <p style="font-style: italic;">Địa chỉ: 19 Nguyễn Hữu Thọ, phường Tân phong, Q7,
+                                TPHCM,
+                                Việt
+                                Nam</p>
+                            <p>SĐT: 0123456789</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    </div>
+
+
+    {{!-- modal: Nguyen Le Anh --}}
+    <div class="modal fade" id="leanh-Modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color:brown; font-weight: bold">NGUYỄN LÊ ANH</h4>
+                </div>
+                <div class="modal-body">
+                    <p>MSSV: 52000623</p>
+                    <p>Email: 52000623@student.tdtu.edu.vn</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- modal: Nguyen Minh Quang--}}
+    <div class="modal fade" id="minhquang-Modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color:brown; font-weight: bold">NGUYỄN MINH QUANG</h4>
+                </div>
+                <div class="modal-body">
+                    <p>MSSV: 52000463</p>
+                    <p>Email: 52000463@student.tdtu.edu.vn</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- modal: Nguyen Khanh Hoa --}}
+    <div class="modal fade" id="khanhhoa-Modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color:brown; font-weight: bold">NGUYỄN KHÁNH HÒA</h4>
+                </div>
+                <div class="modal-body">
+                    <p>MSSV: 52000664</p>
+                    <p>Email: 52000664@student.tdtu.edu.vn</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

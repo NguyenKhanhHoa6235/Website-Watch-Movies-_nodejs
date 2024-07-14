@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Movie Watch Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/netflix-font" rel="stylesheet">
+
+    <style>
+        iframe {
+            box-shadow: 5px 5px 10px 10px #000;
+            border: 10px 10px 10px 10px #000;
+        }
+
+        /* Customize the comment section */
+        #comment-section {
+            margin-top: 50px;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+        }
+
+        /* Add some spacing and styling to the movie title */
+        h1 {
+            
+           
+            
+            
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #0C1221;
+            padding: 20px 0;
+            color: #ffffff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body style="background-color: #0C1221;">
+    <div id="#nav-placeholder">
+        {{> navbar }}
+    </div>
+    {{#if movies}} 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1 style="margin-top: 20px;  margin-bottom: 25px; font-weight: bold; color: #ffffff;">{{movies.name}}</h1>
+                <iframe src={{movies.video}} width="100%" height="600px"
+                    frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Comment section -->
+    <div class="container" id="comment-section">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div style="display: flex; align-items: center;">
+                    <i class="fa-sharp fa-solid fa-comments fa-2xl" style="color: #e60a0a;"></i>
+                    <h2 style="margin-left: 10px;"><b>Bình luận</b></h2>
+                </div>
+                <hr>
+                <div class="comment">
+                    <h4>{{movies.reviews.username}}</h4>
+                    <p>{{movies.reviews.comment}}</p>
+                </div>
+                <!-- Add comment form -->
+                <form style="display: block; justify-content: space-between;" action="/api/movies/{{movies._id}}/reviews" method="POST">
+                    <div class="form-group" style="flex-grow: 1; margin-right: 10px;">
+                        <div>
+                            <label for="rating"><b>Đánh giá( 1-5 sao)</b></label>
+                            <input  class="form-control" type="number" id="rating" min="1" max="5" name="rating">
+                        </div>
+                        <div>
+                            <label for="comment"><b>Thêm bình luận:</b></label>
+                            <input class="form-control" type="text" id="comment" name="comment" rows="3">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng bình luận</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <!-- Footer -->
+    <div id="#nav-placeholder">
+        {{> footer }}
+    </div>
+
+</body>
+
+</html>
